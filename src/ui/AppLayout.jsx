@@ -8,7 +8,7 @@ function AppLayout() {
           
       <main >
         <h1>Content</h1>    
-          </main>
+      </main>
           
       <CartOverview/>
     </div>
