@@ -34,7 +34,7 @@ import { Form } from "react-router-dom";
 
 function CreateOrder() {
   // const [withPriority, setWithPriority] = useState(false);
-  // const cart = fakeCart;
+  const cart = fakeCart;
 
   return (
     <div>
@@ -72,6 +72,7 @@ function CreateOrder() {
         </div>
 
         <div>
+          <input type="hidden" name="cart" value={JSON.stringify(cart)} />
           <button>Order now</button>
         </div>
       </Form>
@@ -81,9 +82,9 @@ function CreateOrder() {
 
 export async function action({request}) {
   const formData = await request.formData();
-  return {
-    body: JSON.stringify(formData),
-    };
+  const data = Object.fromEntries(formData) 
+  console.log(data)
+  return null
 }
 
 export default CreateOrder;
