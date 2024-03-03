@@ -4,10 +4,10 @@ import { Form, redirect, useNavigation } from "react-router-dom";
 import { createOrder } from "../../services/apiRestaurant";
 
 // https://uibakery.io/regex-library/phone-number
-// const isValidPhone = (str) =>
-//   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
-//     str
-//   );
+const isValidPhone = (str) =>
+  /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
+    str
+  );
 
 const fakeCart = [
   {
@@ -98,7 +98,11 @@ export async function action({request}) {
 
   console.log(order)
   const newOrder = await createOrder(order);
-  return redirect(`/orders/${newOrder.id}`);
+
+  const errors = {}
+
+  if (!isValidPhone(order.phone)) errors.phone = "Please give us your correct phone number. We might need it to contact you."
+  return redirect(`/order/${newOrder.id}`);
 }
 
 export default CreateOrder;
