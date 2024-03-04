@@ -96,7 +96,6 @@ export async function action({request}) {
     priority: data.priority === "on"
   }
 
-  console.log(order)
   const newOrder = await createOrder(order);
 
   const errors = {}
