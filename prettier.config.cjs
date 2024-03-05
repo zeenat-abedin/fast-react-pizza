@@ -1,9 +1,10 @@
-// module.exports = {
-//   plugins: ["prettier-plugin-tailwindcss"],
-//   singleQuote: true,
-// };
+// {
+//   "plugins": ["prettier-plugin-tailwindcss"],
+// }
 
+// eslint-disable-next-line no-undef
 module.exports = {
+  // eslint-disable-next-line no-undef
   plugins: [require('prettier-plugin-tailwindcss')],
   singleQuote: true,
 };
