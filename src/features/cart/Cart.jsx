@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 // const fakeCart = [
@@ -25,13 +26,14 @@ import { Link } from 'react-router-dom';
 // ];
 
 function Cart() {
+  const username = useSelector((state) => state.user.username);
   // const cart = fakeCart;
 
   return (
     <div>
       <Link to="/menu">&larr; Back to menu</Link>
 
-      <h2>Your cart, %NAME%</h2>
+      <h2>Your cart, { username }</h2>
 
       <div>
         <Link to="/order/new">Order pizzas</Link>
