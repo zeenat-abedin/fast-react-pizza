@@ -1,6 +1,8 @@
 import { formatCurrency } from "../../utilities/helpers";
 
+// eslint-disable-next-line react/prop-types
 function CartItem({ item }) {
+  // eslint-disable-next-line react/prop-types, no-unused-vars
   const { pizzaId, name, quantity, totalPrice } = item;
 
   return (
