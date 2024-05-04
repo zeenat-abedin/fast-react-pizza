@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import LinkButton from '../../ui/LinkButton';
 import CartItem from './CartItem';
 import { getCart } from './cartSlice';
+import Button from '../../ui/Button';
 
 function Cart() {
   const username = useSelector((state) => state.user.username);
@@ -23,7 +24,7 @@ function Cart() {
 
       <div>
         <Link to="/order/new" type='primary'>Order pizzas</Link>
-        <button>Clear cart</button>
+        <Button type="secondary" onClick={()=>{}}>Clear cart</Button>
       </div>
     </div>
   );
