@@ -4,11 +4,14 @@ import LinkButton from '../../ui/LinkButton';
 import CartItem from './CartItem';
 import { clearCart, getCart } from './cartSlice';
 import Button from '../../ui/Button';
+import EmptyCart from './EmptyCart';
 
 function Cart() {
   const username = useSelector((state) => state.user.username);
   const cart = useSelector(getCart);
   const dispatch = useDispatch()
+
+  if(!cart.length) return <EmptyCart/>
   return (
     <div className='px-4 py-3'>
       <LinkButton to="/menu">&larr; Back to menu</LinkButton>
