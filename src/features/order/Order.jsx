@@ -4,6 +4,7 @@ import {
   formatCurrency,
   formatDate,
 } from "../../utils/helpers";
+import OrderItem from "./OrderItem";
 
 const order = {
   id: "ABCDEF",
@@ -49,7 +50,7 @@ function Order() {
     priorityPrice,
     orderPrice,
     estimatedDelivery,
-    // cart,
+    cart,
   } = order;
   const deliveryIn = calcMinutesLeft(estimatedDelivery);
 
@@ -72,6 +73,12 @@ function Order() {
         </p>
         <p>(Estimated delivery: {formatDate(estimatedDelivery)})</p>
       </div>
+
+      <ul>
+        {cart.map((item) => {
+          <OrderItem item={item} key={item.pizzaId } />
+        })}
+      </ul>
 
       <div>
         <p>Price pizza: {formatCurrency(orderPrice)}</p>
